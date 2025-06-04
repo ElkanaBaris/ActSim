@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback, useEffect, useState } from 'react';
 import * as THREE from 'three';
 
 export interface CameraPosition {
@@ -22,6 +22,7 @@ export function useThreeScene() {
   const lastMouseRef = useRef({ x: 0, y: 0 });
   const cameraRotationRef = useRef({ phi: Math.PI / 4, theta: Math.PI / 4 });
   const cameraDistanceRef = useRef(120);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const initScene = useCallback((canvas: HTMLCanvasElement) => {
     if (sceneRef.current) return { scene: sceneRef.current, camera: cameraRef.current!, renderer: rendererRef.current! };
@@ -84,9 +85,10 @@ export function useThreeScene() {
     cameraRef.current = camera;
     rendererRef.current = renderer;
 
-    // Setup controls and animation
+    // Setup controls; render loop started separately
     setupAdvancedControls(canvas, camera);
-    startRenderLoop(renderer, scene, camera);
+
+    setIsInitialized(true);
 
     return { scene, camera, renderer };
   }, []);
@@ -446,13 +448,16 @@ export function useThreeScene() {
     canvas.style.cursor = 'crosshair';
   };
 
-  const startRenderLoop = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.PerspectiveCamera) => {
+  const startRenderLoop = useCallback(() => {
+    if (!rendererRef.current || !sceneRef.current || !cameraRef.current) return;
+
     const animate = () => {
       animationRef.current = requestAnimationFrame(animate);
-      renderer.render(scene, camera);
+      rendererRef.current!.render(sceneRef.current!, cameraRef.current!);
     };
+
     animate();
-  };
+  }, []);
 
   const setCameraPosition = useCallback((position: CameraPosition, target: CameraTarget) => {
     if (cameraRef.current) {
@@ -487,6 +492,8 @@ export function useThreeScene() {
   return {
     initScene,
     setCameraPosition,
+    startRenderLoop,
+    isInitialized,
     render,
     updateAspectRatio
   };

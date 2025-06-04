@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '@/lib/api-client';
-import { getOutcomeType, type MissionOutcome, type ScenarioStep, type DecisionOption } from '@/lib/scenario-data';
+import { getOutcomeType, type MissionOutcome, type ScenarioStep, type DecisionOption, type Scenario } from '@/lib/scenario-data';
 import ThreeScene from '@/components/three-scene';
 import HUD from '@/components/hud';
 import DecisionPanel from '@/components/decision-panel';
@@ -54,10 +54,12 @@ export default function TacticalSimulator() {
     showTreeReplay: false,
     replayIndex: 0,
     isReplayPlaying: false,
+    showScenarioEvent: false,
+    scenarioEvent: null,
     outcome: null,
   });
 
-  const { data: scenario, isLoading: scenarioLoading } = useQuery({
+  const { data: scenario, isLoading: scenarioLoading } = useQuery<Scenario>({
     queryKey: ['/api/scenarios/urban-raid-001'],
   });
 
@@ -198,10 +200,12 @@ export default function TacticalSimulator() {
       showOutcome: false,
       showReplay: false,
       showTreeReplay: false,
-      replayIndex: 0,
-      isReplayPlaying: false,
-      outcome: null,
-    });
+    replayIndex: 0,
+    isReplayPlaying: false,
+    showScenarioEvent: false,
+    scenarioEvent: null,
+    outcome: null,
+  });
 
     if (scenario) {
       createSessionMutation.mutate({
@@ -307,7 +311,7 @@ export default function TacticalSimulator() {
           {/* Decision options - horizontal layout */}
           {gameState.showDecisionPanel && currentStep && (
             <div className="flex gap-4">
-              {currentStep.options.map((option) => (
+              {currentStep.options.map((option: DecisionOption) => (
                 <button
                   key={option.id}
                   onClick={() => handleSelectOption(option)}

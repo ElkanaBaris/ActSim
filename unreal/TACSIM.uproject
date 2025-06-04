@@ -1,0 +1,15 @@
+{
+    "FileVersion": 3,
+    "Version": 1,
+    "VersionName": "0.0",
+    "EngineAssociation": "5.4",
+    "Category": "",
+    "Description": "Tactical simulation VR project",
+    "Modules": [
+        {
+            "Name": "TACSIM",
+            "Type": "Runtime",
+            "LoadingPhase": "Default"
+        }
+    ]
+}
