@@ -1,0 +1,129 @@
+# example_scenario.yaml
+# Phase 2.5 "Five-Stage Daylight Raid – Lebanon"
+
+scenario:
+  name: "Five-Stage Daylight Raid"
+  location: "Lebanon"
+  time_of_day: "daytime"
+
+  environment:
+    map_asset: "/Game/Maps/UrbanTownhouse01"
+
+  building:
+    type: "Townhouse_3Floor"
+    location: { x: 0, y: 0, z: 0 }
+    rotation: { yaw: 90 }
+
+  actors:
+    - id: "BlueLeader"
+      type: "Friendly"
+      spawn: { x: -100, y: 0, z: 0 }
+      role: "TeamLeader"
+    - id: "BlueBreacher"
+      type: "Friendly"
+      spawn: { x: -110, y: 10, z: 0 }
+      role: "Breacher"
+    - id: "RedDefender1"
+      type: "Enemy"
+      spawn: { x: 5, y: 5, z: 0 }
+      role: "Sentry"
+    - id: "RedDefender2"
+      type: "Enemy"
+      spawn: { x: 5, y: -5, z: 300 }
+      role: "Rifleman"
+
+  stages:
+    - stage: 1
+      name: "First Move toward Objective"
+      decisions:
+        A:
+          description: "Suppressive fire on the house"
+          effects:
+            audio: ["Audio/GunfireLoop"]
+            visual: ["FX/MuzzleFlash"]
+        B:
+          description: "Launch a daylight drone for recon"
+          effects:
+            audio: ["Audio/DroneBuzz"]
+            visual: ["Drone/DroneModel"]
+        C:
+          description: "Silent breach attempt"
+          effects:
+            audio: ["Audio/FootstepsQuiet"]
+            visual: ["None"]
+
+    - stage: 2
+      name: "Point of Entry"
+      decisions:
+        A:
+          description: "Main door entry (fast, risk of booby-trap)"
+          effects:
+            audio: ["Audio/DoorCreak"]
+            visual: ["FX/Flashbang"]
+        B:
+          description: "Explosive wall breach"
+          effects:
+            audio: ["Audio/ExplosionSmall"]
+            visual: ["FX/WallRubble"]
+        C:
+          description: "Flank through brush and rear entry"
+          effects:
+            audio: ["Audio/LeafRustle"]
+            visual: ["Brush/FoliageRustle"]
+
+    - stage: 3
+      name: "Clearing the Interior"
+      decisions:
+        A:
+          description: "Bottom-up blitz"
+          effects:
+            audio: ["Audio/StairsFootsteps", "Audio/GunfireShort"]
+            visual: ["FX/RoomClearFlash"]
+        B:
+          description: "Direct-to-cellar first"
+          effects:
+            audio: ["Audio/LadderClimb"]
+            visual: ["FX/CellarEntrySmoke"]
+        C:
+          description: "Slice & hold, one level at a time"
+          effects:
+            audio: ["Audio/ClearRoomEcho"]
+            visual: ["FX/RoomClearSmoke"]
+
+    - stage: 4
+      name: "Unknown External Gunfire"
+      decisions:
+        A:
+          description: "Halt and fortify inside"
+          effects:
+            audio: ["Audio/FortifyNoise"]
+            visual: ["FX/WindowBarricade"]
+        B:
+          description: "Deploy drone while clearing"
+          effects:
+            audio: ["Audio/DroneBuzz"]
+            visual: ["Drone/DronePing"]
+        C:
+          description: "Continue clearing with extra lookouts"
+          effects:
+            audio: ["Audio/GunfireShort"]
+            visual: ["FX/LookoutFlash"]
+
+    - stage: 5
+      name: "Exfiltration Plan"
+      decisions:
+        A:
+          description: "Defensive perimeter, call vehicles"
+          effects:
+            audio: ["Audio/RadioCall"]
+            visual: ["Vehicles/ArmoredVehicle"]
+        B:
+          description: "Silent fade through brush"
+          effects:
+            audio: ["Audio/FootstepsQuiet"]
+            visual: ["Brush/FoliageRustle"]
+        C:
+          description: "Noisy bounding breakout"
+          effects:
+            audio: ["Audio/GunfireLoop"]
+            visual: ["FX/FlashbangMultiple"]
