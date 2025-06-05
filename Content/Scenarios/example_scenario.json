@@ -65,37 +65,13 @@
         "name": "First Move toward Objective",
         "decisions": {
           "A": {
-            "description": "Suppressive fire on the house",
-            "effects": {
-              "audio": [
-                "Audio/GunfireLoop"
-              ],
-              "visual": [
-                "FX/MuzzleFlash"
-              ]
-            }
+            "description": "Suppressive fire on the house"
           },
           "B": {
-            "description": "Launch a daylight drone for recon",
-            "effects": {
-              "audio": [
-                "Audio/DroneBuzz"
-              ],
-              "visual": [
-                "Drone/DroneModel"
-              ]
-            }
+            "description": "Launch a daylight drone for recon"
           },
           "C": {
-            "description": "Silent breach attempt",
-            "effects": {
-              "audio": [
-                "Audio/FootstepsQuiet"
-              ],
-              "visual": [
-                "None"
-              ]
-            }
+            "description": "Silent breach attempt"
           }
         }
       },
@@ -104,37 +80,13 @@
         "name": "Point of Entry",
         "decisions": {
           "A": {
-            "description": "Main door entry (fast, risk of booby-trap)",
-            "effects": {
-              "audio": [
-                "Audio/DoorCreak"
-              ],
-              "visual": [
-                "FX/Flashbang"
-              ]
-            }
+            "description": "Main door entry (fast, risk of booby-trap)"
           },
           "B": {
-            "description": "Explosive wall breach",
-            "effects": {
-              "audio": [
-                "Audio/ExplosionSmall"
-              ],
-              "visual": [
-                "FX/WallRubble"
-              ]
-            }
+            "description": "Explosive wall breach"
           },
           "C": {
-            "description": "Flank through brush and rear entry",
-            "effects": {
-              "audio": [
-                "Audio/LeafRustle"
-              ],
-              "visual": [
-                "Brush/FoliageRustle"
-              ]
-            }
+            "description": "Flank through brush and rear entry"
           }
         }
       },
@@ -143,38 +95,13 @@
         "name": "Clearing the Interior",
         "decisions": {
           "A": {
-            "description": "Bottom-up blitz",
-            "effects": {
-              "audio": [
-                "Audio/StairsFootsteps",
-                "Audio/GunfireShort"
-              ],
-              "visual": [
-                "FX/RoomClearFlash"
-              ]
-            }
+            "description": "Bottom-up blitz"
           },
           "B": {
-            "description": "Direct-to-cellar first",
-            "effects": {
-              "audio": [
-                "Audio/LadderClimb"
-              ],
-              "visual": [
-                "FX/CellarEntrySmoke"
-              ]
-            }
+            "description": "Direct-to-cellar first"
           },
           "C": {
-            "description": "Slice & hold, one level at a time",
-            "effects": {
-              "audio": [
-                "Audio/ClearRoomEcho"
-              ],
-              "visual": [
-                "FX/RoomClearSmoke"
-              ]
-            }
+            "description": "Slice & hold, one level at a time"
           }
         }
       },
@@ -183,37 +110,13 @@
         "name": "Unknown External Gunfire",
         "decisions": {
           "A": {
-            "description": "Halt and fortify inside",
-            "effects": {
-              "audio": [
-                "Audio/FortifyNoise"
-              ],
-              "visual": [
-                "FX/WindowBarricade"
-              ]
-            }
+            "description": "Halt and fortify inside"
           },
           "B": {
-            "description": "Deploy drone while clearing",
-            "effects": {
-              "audio": [
-                "Audio/DroneBuzz"
-              ],
-              "visual": [
-                "Drone/DronePing"
-              ]
-            }
+            "description": "Deploy drone while clearing"
           },
           "C": {
-            "description": "Continue clearing with extra lookouts",
-            "effects": {
-              "audio": [
-                "Audio/GunfireShort"
-              ],
-              "visual": [
-                "FX/LookoutFlash"
-              ]
-            }
+            "description": "Continue clearing with extra lookouts"
           }
         }
       },
@@ -222,37 +125,13 @@
         "name": "Exfiltration Plan",
         "decisions": {
           "A": {
-            "description": "Defensive perimeter, call vehicles",
-            "effects": {
-              "audio": [
-                "Audio/RadioCall"
-              ],
-              "visual": [
-                "Vehicles/ArmoredVehicle"
-              ]
-            }
+            "description": "Defensive perimeter, call vehicles"
           },
           "B": {
-            "description": "Silent fade through brush",
-            "effects": {
-              "audio": [
-                "Audio/FootstepsQuiet"
-              ],
-              "visual": [
-                "Brush/FoliageRustle"
-              ]
-            }
+            "description": "Silent fade through brush"
           },
           "C": {
-            "description": "Noisy bounding breakout",
-            "effects": {
-              "audio": [
-                "Audio/GunfireLoop"
-              ],
-              "visual": [
-                "FX/FlashbangMultiple"
-              ]
-            }
+            "description": "Noisy bounding breakout"
           }
         }
       }
