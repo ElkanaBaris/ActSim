@@ -68,7 +68,7 @@
             "description": "Suppressive fire on the house"
           },
           "B": {
-            "description": "Launch a daylight drone for recon"
+            "description": "Send a lookout for recon"
           },
           "C": {
             "description": "Silent breach attempt"
@@ -113,7 +113,7 @@
             "description": "Halt and fortify inside"
           },
           "B": {
-            "description": "Deploy drone while clearing"
+            "description": "Assign extra lookout while clearing"
           },
           "C": {
             "description": "Continue clearing with extra lookouts"
@@ -125,7 +125,7 @@
         "name": "Exfiltration Plan",
         "decisions": {
           "A": {
-            "description": "Defensive perimeter, call vehicles"
+            "description": "Defensive perimeter, await pickup"
           },
           "B": {
             "description": "Silent fade through brush"
