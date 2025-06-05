@@ -5,6 +5,11 @@ training simulator. The `/unreal` folder holds the Unreal Engine project used
 for VR scenes while the `/server` and `/client` folders contain the Node.js API
 and React front‑end.
 
+## Installation
+
+See [`docs/INSTALLATION.md`](docs/INSTALLATION.md) for full setup instructions,
+including helper scripts for macOS, Linux and Docker.
+
 ## Running the Web App
 
 ```
