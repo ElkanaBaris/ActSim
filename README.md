@@ -29,9 +29,8 @@ Make sure all dependencies are installed via `npm install` before running this c
 Setup instructions and C++ source for the VR demo are located in
 [`unreal/README.md`](unreal/README.md).
 
-Additional notes on optional audio/visual assets live in
-[`docs/enhanced_vr.md`](docs/enhanced_vr.md). Prompts for generating the
-core placeholder assets are in [`docs/asset_prompts.md`](docs/asset_prompts.md).
+Prompts for generating the core placeholder assets are in [`docs/asset_prompts.md`](docs/asset_prompts.md).
+
 
 ## Git LFS
 
