@@ -14,7 +14,21 @@ npm run dev
 
 The server will start on port `5000` and host both the API and the front‑end.
 
+## Type Checking
+
+Run the TypeScript compiler to verify the project builds without errors:
+
+```bash
+npm run check
+```
+
+Make sure all dependencies are installed via `npm install` before running this command.
+
 ## Unreal VR Scene
 
 Setup instructions and C++ source for the VR demo are located in
 [`unreal/README.md`](unreal/README.md).
+
+## Git LFS
+
+Large binary assets such as Unreal Engine resources are stored using [Git LFS](https://git-lfs.github.com/). Install Git LFS and run `git lfs install` before working with the repo. After cloning, execute `git lfs pull` to download any large files.
