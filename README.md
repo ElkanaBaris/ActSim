@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-The server will start on port `5000` and host both the API and the front‑end.
+The server will start on [http://127.0.0.1:5000](http://127.0.0.1:5000) and host both the API and the front‑end.
 
 ## Type Checking
 

@@ -22,7 +22,7 @@ git lfs pull
 Create a PostgreSQL database and note the connection string. Export it as `DATABASE_URL` before running the server. Example:
 
 ```bash
-export DATABASE_URL=postgres://user:password@localhost:5432/actsim
+export DATABASE_URL=postgres://user:password@127.0.0.1:5432/actsim
 ```
 
 Install Node dependencies and run database migrations:
@@ -38,7 +38,7 @@ Start the development server:
 npm run dev
 ```
 
-The API and front end will be available on [http://localhost:5000](http://localhost:5000).
+The API and front end will be available on [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
 ### Building for Production
 

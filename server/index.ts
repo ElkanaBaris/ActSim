@@ -63,7 +63,8 @@ app.use((req, res, next) => {
   // use a simple listen call for broad platform compatibility
   server.listen({
     port,
-    host: "0.0.0.0",
+    // bind specifically to the loopback interface
+    host: "127.0.0.1",
   }, () => {
     log(`serving on port ${port}`);
   });
