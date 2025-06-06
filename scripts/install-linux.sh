@@ -5,7 +5,7 @@ set -e
 sudo apt-get update
 
 # Install Node.js from NodeSource
-if ! command -v node >/dev/null 2>&1; then
+if ! command -v node >/dev/null 2>&1 || ! node -v | grep -q '^v20'; then
   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
   sudo apt-get install -y nodejs
 fi

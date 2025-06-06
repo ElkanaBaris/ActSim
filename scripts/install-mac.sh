@@ -7,9 +7,10 @@ if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Install Node.js (latest LTS)
-if ! command -v node >/dev/null 2>&1; then
+# Install Node.js 20 (required)
+if ! command -v node >/dev/null 2>&1 || ! node -v | grep -q '^v20'; then
   brew install node@20
+  brew link --overwrite --force node@20
 fi
 
 # Install git-lfs
