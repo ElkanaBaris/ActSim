@@ -5,7 +5,7 @@ This document explains how to set up **ActSim** and all required dependencies on
 ## Prerequisites
 
 - **Git** and **Git LFS**
-- **Node.js** (recommended Node 20 or newer)
+- **Node.js 20** (other versions have not been tested and may fail)
 - **npm** (bundled with Node.js)
 - **PostgreSQL** server
 - **Unreal Engine 5** for building the optional VR demo
