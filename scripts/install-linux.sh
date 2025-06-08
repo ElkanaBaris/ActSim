@@ -24,9 +24,12 @@ fi
 echo "Installing npm dependencies"
 npm install
 
+echo "Running database migrations"
+npm run db:push
+
 cat <<EOM
 Setup complete. Configure the DATABASE_URL environment variable before running the server:
-  export DATABASE_URL=postgres://user:password@localhost:5432/actsim
+  export DATABASE_URL=postgres://user:password@127.0.0.1:5432/actsim
 Run the development server with:
   npm run dev
 EOM
