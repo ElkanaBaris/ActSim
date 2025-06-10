@@ -44,10 +44,13 @@ Large binary assets such as Unreal Engine resources are stored using [Git LFS](h
 ## Asset Viewer
 
 The `Tools/view_asset.py` script can be used to quickly preview meshes in the
-`assets/` directory. It relies only on [Open3D](https://www.open3d.org/), which
-is available on Windows, macOS and Linux.
+`assets/` directory. It relies on [Open3D](https://www.open3d.org/).
+
+**Note:** Open3D distributes wheels for Python 3.12 and earlier. On Python
+3.13 you may need to build Open3D from source or use an older interpreter to
+run this viewer.
 
 ```bash
 pip install open3d
-./Tools/view_asset.py assets/scene_ME.obj
+python3 Tools/view_asset.py assets/scene_ME.obj
 ```
