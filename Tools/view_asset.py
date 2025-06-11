@@ -10,7 +10,18 @@ import argparse
 import os
 import sys
 
-import open3d as o3d
+try:
+    import open3d as o3d
+except Exception as exc:
+    message = f"Failed to import Open3D: {exc}"
+    if sys.version_info >= (3, 13):
+        message += (
+            "\nOpen3D provides wheels only for Python 3.12 and earlier. "
+            "You can build Open3D from source or run this tool with an older Python release."
+        )
+    else:
+        message += "\nInstall Open3D with 'pip install open3d'."
+    sys.exit(message)
 
 
 def main() -> None:
