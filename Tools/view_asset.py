@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Simple 3D asset viewer.
 
-This script loads a 3D model file (e.g. OBJ or FBX) and displays it using
-Open3D. It is completely standalone and does not rely on any of the
-simulation logic in the web app.
+This script loads a 3D model file (OBJ, FBX, or Maya ``.mb``) and displays it
+using Open3D. It is completely standalone and does not rely on any of the
+simulation logic in the web app. Maya binaries are converted to OBJ using the
+``assimp`` command if available.
 """
 
 import argparse
 import os
+import subprocess
 import sys
 
 try:
@@ -33,7 +35,31 @@ def main() -> None:
     if not os.path.exists(asset_path):
         sys.exit(f"File not found: {asset_path}")
 
-    mesh = o3d.io.read_triangle_mesh(asset_path)
+    ext = os.path.splitext(asset_path)[1].lower()
+    if ext == ".mb":
+        # Attempt to convert Maya binaries using Assimp if available
+        tmp_obj = os.path.splitext(asset_path)[0] + "_tmp.obj"
+        try:
+            result = subprocess.run([
+                "assimp",
+                "export",
+                asset_path,
+                tmp_obj,
+            ], capture_output=True, text=True)
+        except FileNotFoundError:
+            sys.exit(
+                "Cannot display .mb files: 'assimp' command not found. "
+                "Export the file to OBJ or FBX first."
+            )
+        if result.returncode != 0 or not os.path.exists(tmp_obj):
+            sys.exit(
+                "Failed to convert .mb file with assimp. "
+                "Ensure assimp supports Maya binaries or export manually."
+            )
+        mesh = o3d.io.read_triangle_mesh(tmp_obj)
+        os.remove(tmp_obj)
+    else:
+        mesh = o3d.io.read_triangle_mesh(asset_path)
     if mesh.is_empty():
         sys.exit(f"Unable to load mesh from {asset_path}")
 

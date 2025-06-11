@@ -44,7 +44,9 @@ Large binary assets such as Unreal Engine resources are stored using [Git LFS](h
 ## Asset Viewer
 
 The `Tools/view_asset.py` script can be used to quickly preview meshes in the
-`assets/` directory. It relies on [Open3D](https://www.open3d.org/).
+`assets/` directory. It relies on [Open3D](https://www.open3d.org/) and can
+open OBJ/FBX files directly. Maya `.mb` binaries are converted to OBJ using the
+`assimp` command when available.
 
 **Note:** Open3D distributes wheels for Python 3.12 and earlier. On Python
 3.13 you may need to build Open3D from source or use an older interpreter to
